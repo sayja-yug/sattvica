@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{% block title %}{{ page_title|default:"NADI-VERSE™ | Sattvica Ayurved" }}{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}{{ meta_description|default:"NADI-VERSE™ by Sattvica Ayurved — AI-powered Ayurvedic wearable concept. SSIP 2026." }}{% endblock %}" />
+  <meta name="theme-color" content="#00d4ff" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% block og_title %}NADI-VERSE™ | Ancient Wisdom. Future Technology.{% endblock %}" />
+  <meta property="og:description" content="AI-powered Ayurvedic wearable concept for personalized wellness. SSIP Proof-of-Concept 2026." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Project CSS -->
+  <link rel="stylesheet" href="{% static 'css/main.css' %}" />
+
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+
+
+  <!-- Navigation -->
+  <nav id="main-nav" role="navigation" aria-label="Main navigation">
+    <div class="nav-container">
+      <a href="{% url 'core:landing' %}" class="nav-logo" aria-label="NADI-VERSE Home">
+        <img src="{% static 'img/logo.png' %}" alt="Sattvica Ayurved" class="nav-logo-img" />
+        <div class="nav-logo-text">
+          <span class="nav-logo-brand">NADI-VERSE™</span>
+          <span class="nav-logo-sub">by Sattvica Ayurved</span>
+        </div>
+      </a>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#problem">Problem</a></li>
+        <li><a href="/#innovation">Innovation</a></li>
+        <li><a href="/#how-it-works">How It Works</a></li>
+        <li><a href="/#tech-arch">Technology</a></li>
+        <li><a href="/#roadmap">Roadmap</a></li>
+        <li><a href="/#founder">Founder</a></li>
+        <li><a href="/#ssip">SSIP</a></li>
+        <li><a href="{% url 'demo:demo' %}" class="nav-cta">Try Demo</a></li>
+      </ul>
+
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="{% url 'core:landing' %}" class="nav-logo" style="margin-bottom:0.75rem; display:inline-flex;">
+            <img src="{% static 'img/logo.png' %}" alt="Sattvica Ayurved" class="nav-logo-img" />
+            <div class="nav-logo-text">
+              <span class="nav-logo-brand">NADI-VERSE™</span>
+              <span class="nav-logo-sub">by Sattvica Ayurved</span>
+            </div>
+          </a>
+          <p>Ancient Wisdom. Future Technology.<br/>Making personalized Ayurvedic wellness accessible through AI-powered innovation.</p>
+        </div>
+
+        <div class="footer-links">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/#about">About Sattvica</a></li>
+            <li><a href="/#innovation">NADI-VERSE™</a></li>
+            <li><a href="/#how-it-works">How It Works</a></li>
+            <li><a href="/#tech-arch">Technology</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/#roadmap">Roadmap</a></li>
+            <li><a href="/#founder">Founder</a></li>
+            <li><a href="{% url 'demo:demo' %}">Interactive Demo</a></li>
+            <li><a href="/admin/">Admin</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2026 Sattvica Ayurved. All rights reserved.</p>
+        <p class="footer-disclaimer">
+          ⚠️ <strong>Disclaimer:</strong> NADI-VERSE™ is a conceptual proof-of-concept developed for SSIP evaluation.
+          All AI-generated results are simulated and do not constitute medical advice.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{% static 'js/main.js' %}"></script>
+  {% block extra_scripts %}{% endblock %}
+
+</body>
+</html>

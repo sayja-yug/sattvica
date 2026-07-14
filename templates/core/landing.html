@@ -1,0 +1,674 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 1 — HERO
+════════════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Hero — NADI-VERSE Introduction">
+  <div class="hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb-2" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <!-- Text -->
+    <div class="hero-text">
+      <div class="hero-badge" aria-label="Project status">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        SSIP 2026 — Live Proof of Concept
+      </div>
+
+      <h1 class="hero-title">
+        <span class="gradient-text">Ancient Wisdom.</span><br/>
+        Future Technology.
+      </h1>
+
+      <p class="hero-tagline">
+        Introducing <strong>NADI-VERSE™</strong> — an AI-powered wearable that reads your
+        physiological signals and translates them into personalized
+        <strong>Ayurvedic wellness insights</strong>.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#innovation" class="btn btn-primary btn-lg" id="btn-explore-innovation">
+          <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+          Explore NADI-VERSE™
+        </a>
+        <a href="{% url 'demo:demo' %}" class="btn btn-outline btn-lg" id="btn-start-demo">
+          <i class="fa-solid fa-play" aria-hidden="true"></i>
+          Start Demo
+        </a>
+      </div>
+
+      <div class="hero-stats" aria-label="Key statistics">
+        <div class="hero-stat">
+          <div class="hero-stat-value" data-count="3" data-suffix="">
+            <span data-count="3">3</span>
+          </div>
+          <div class="hero-stat-label">Dosha Types</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span data-count="7">7</span>
+          </div>
+          <div class="hero-stat-label">Metrics Tracked</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span data-count="5000">5k+</span>
+          </div>
+          <div class="hero-stat-label">Years of Wisdom</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-value">
+            <span data-count="100">100%</span>
+          </div>
+          <div class="hero-stat-label">Personalized</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Device Visual -->
+    <div class="hero-visual" aria-label="NADI-VERSE device illustration" aria-hidden="true">
+      <div class="hero-device-ring ring-1"></div>
+      <div class="hero-device-ring ring-2"></div>
+      <div class="hero-device-ring ring-3"></div>
+
+      <div class="hero-device-core">
+        <div class="device-icon">⌚</div>
+        <div class="device-label">NADI-VERSE™</div>
+        <div class="device-sub">AI Wellness Wearable</div>
+      </div>
+
+      <div class="data-chip chip-1" aria-hidden="true">💓 HRV: 68ms</div>
+      <div class="data-chip chip-2" aria-hidden="true">🌡️ Temp: 36.8°C</div>
+      <div class="data-chip chip-3" aria-hidden="true">🌬️ SpO₂: 98%</div>
+      <div class="data-chip chip-4" aria-hidden="true">✅ Pitta: 42%</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 2 — ABOUT SATTVICA AYURVED
+════════════════════════════════════════════════════════════ -->
+<section id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label">About Us</p>
+        <h2 class="section-title reveal" id="about-heading">
+          Where Ancient<br/><span class="gradient-text">Meets Artificial</span>
+        </h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Sattvica Ayurved is pioneering the fusion of 5,000-year-old Ayurvedic wisdom
+          with cutting-edge Artificial Intelligence, wearable technology, and preventive
+          healthcare — making personalized wellness accessible to everyone.
+        </p>
+
+        <div class="about-feature-list">
+          <div class="about-feature reveal reveal-delay-2">
+            <div class="about-feature-icon" aria-hidden="true"><i class="fa-solid fa-brain"></i></div>
+            <div class="about-feature-text">
+              <h4>AI-Powered Analysis</h4>
+              <p>Machine learning models trained on Ayurvedic principles to decode physiological signals into dosha insights.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-3">
+            <div class="about-feature-icon" aria-hidden="true"><i class="fa-solid fa-watch"></i></div>
+            <div class="about-feature-text">
+              <h4>Smart Wearable Technology</h4>
+              <p>Non-invasive sensors collecting real-time biometric data — heart rate variability, temperature, SpO₂.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-4">
+            <div class="about-feature-icon" aria-hidden="true"><i class="fa-solid fa-shield-heart"></i></div>
+            <div class="about-feature-text">
+              <h4>Preventive Healthcare</h4>
+              <p>Proactive wellness insights before symptoms arise — the Ayurvedic approach to lifelong health.</p>
+            </div>
+          </div>
+          <div class="about-feature reveal reveal-delay-5">
+            <div class="about-feature-icon" aria-hidden="true"><i class="fa-solid fa-person-rays"></i></div>
+            <div class="about-feature-text">
+              <h4>Personalized Wellness</h4>
+              <p>Every individual has a unique dosha constitution. Our AI delivers insights tailored to you — not generic advice.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="about-stats-grid">
+          <div class="glass-card about-stat-card reveal">
+            <span class="about-stat-num gradient-text">Vata</span>
+            <span class="about-stat-label">Air & Space</span>
+          </div>
+          <div class="glass-card about-stat-card reveal reveal-delay-1">
+            <span class="about-stat-num gradient-text">Pitta</span>
+            <span class="about-stat-label">Fire & Water</span>
+          </div>
+          <div class="glass-card about-stat-card reveal reveal-delay-2">
+            <span class="about-stat-num gradient-text">Kapha</span>
+            <span class="about-stat-label">Earth & Water</span>
+          </div>
+          <div class="glass-card about-stat-card reveal reveal-delay-3">
+            <span class="about-stat-num gradient-text">AI</span>
+            <span class="about-stat-label">Intelligence Engine</span>
+          </div>
+        </div>
+
+        <div class="glass-card reveal reveal-delay-4" style="padding:2rem; margin-top:1.5rem;">
+          <p class="section-label" style="margin-bottom:0.75rem;">Our Mission</p>
+          <p style="color:var(--text-secondary); font-size:0.9rem; line-height:1.8;">
+            "To make personalized Ayurvedic wellness accessible to every individual
+            through the power of modern technology — bridging ancient healing wisdom
+            with the data-driven future of healthcare."
+          </p>
+          <p style="color:var(--text-muted); font-size:0.75rem; margin-top:1rem; font-style:italic;">— Sattvica Ayurved Vision 2026</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 3 — THE PROBLEM
+════════════════════════════════════════════════════════════ -->
+<section id="problem" aria-labelledby="problem-heading">
+  <div class="container">
+    <div style="text-align:center; max-width:640px; margin:0 auto 3rem;">
+      <p class="section-label">The Problem</p>
+      <h2 class="section-title reveal" id="problem-heading">
+        Modern Wearables<br/><span class="gradient-text">Miss the Point</span>
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-1" style="margin:0 auto;">
+        Today's fitness trackers collect rich health data but interpret it through a purely
+        Western biomedical lens — ignoring 5,000 years of validated holistic wisdom.
+      </p>
+    </div>
+
+    <div class="problem-grid">
+      <div class="glass-card problem-card reveal">
+        <div class="problem-icon" aria-hidden="true">📊</div>
+        <h3>Data Without Context</h3>
+        <p>Your smartwatch tells you your heart rate is 88 bpm. But what does that mean for <em>your</em> constitution, your digestion, your sleep? Standard wearables cannot answer this.</p>
+      </div>
+      <div class="glass-card problem-card reveal reveal-delay-1">
+        <div class="problem-icon" aria-hidden="true">🧬</div>
+        <h3>One-Size-Fits-All Advice</h3>
+        <p>Generic wellness recommendations ignore individual biological and constitutional differences. Ayurveda knows every person has a unique Prakriti — a unique baseline that demands personalized guidance.</p>
+      </div>
+      <div class="glass-card problem-card reveal reveal-delay-2">
+        <div class="problem-icon" aria-hidden="true">🔗</div>
+        <h3>No Bridge to Ayurveda</h3>
+        <p>Despite growing global interest in Ayurvedic wellness, no mainstream wearable technology connects biometric signals to Ayurvedic principles — leaving a massive gap in personalized preventive care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 4 — OUR INNOVATION: NADI-VERSE™
+════════════════════════════════════════════════════════════ -->
+<section id="innovation" aria-labelledby="innovation-heading">
+  <div class="container">
+    <div style="text-align:center; max-width:680px; margin:0 auto 1rem;">
+      <p class="section-label">Our Innovation</p>
+      <h2 class="section-title reveal" id="innovation-heading">
+        Introducing<br/><span class="gradient-text">NADI-VERSE™</span>
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-1" style="margin:0 auto;">
+        The world's first AI-powered wearable concept designed to interpret physiological signals
+        through the lens of Ayurvedic medicine — delivering a fully personalized wellness experience.
+      </p>
+    </div>
+
+    <!-- Flow Diagram -->
+    <div class="flow-diagram" role="img" aria-label="NADI-VERSE data flow: Wearable to Personalized Insights">
+      <div class="flow-step reveal">
+        <div class="flow-step-icon" aria-hidden="true">⌚</div>
+        <div class="flow-step-label">Wearable<br/>Device</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="flow-step reveal reveal-delay-1">
+        <div class="flow-step-icon" aria-hidden="true">📡</div>
+        <div class="flow-step-label">Physiological<br/>Signals</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="flow-step reveal reveal-delay-2">
+        <div class="flow-step-icon" aria-hidden="true">🤖</div>
+        <div class="flow-step-label">AI Processing<br/>Engine</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="flow-step reveal reveal-delay-3">
+        <div class="flow-step-icon" aria-hidden="true">📖</div>
+        <div class="flow-step-label">Ayurvedic<br/>Knowledge Engine</div>
+      </div>
+      <div class="flow-arrow" aria-hidden="true"><i class="fa-solid fa-arrow-right"></i></div>
+      <div class="flow-step reveal reveal-delay-4">
+        <div class="flow-step-icon" aria-hidden="true">✨</div>
+        <div class="flow-step-label">Personalized<br/>Insights</div>
+      </div>
+    </div>
+
+    <!-- Feature highlights -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1.5rem; margin-top:4rem;">
+      <div class="glass-card reveal" style="padding:2rem;">
+        <div style="font-size:1.75rem; margin-bottom:0.75rem;" aria-hidden="true">🫀</div>
+        <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Nadi Pariksha — Digitized</h3>
+        <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7;">Traditional pulse diagnosis (Nadi Pariksha) reimagined through HRV sensors and AI pattern recognition.</p>
+      </div>
+      <div class="glass-card reveal reveal-delay-1" style="padding:2rem;">
+        <div style="font-size:1.75rem; margin-bottom:0.75rem;" aria-hidden="true">🌡️</div>
+        <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Multi-Signal Fusion</h3>
+        <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7;">Temperature, SpO₂, HRV, galvanic skin response — fused into a holistic Ayurvedic profile.</p>
+      </div>
+      <div class="glass-card reveal reveal-delay-2" style="padding:2rem;">
+        <div style="font-size:1.75rem; margin-bottom:0.75rem;" aria-hidden="true">📱</div>
+        <h3 style="font-size:1rem; font-weight:700; margin-bottom:0.5rem;">Mobile + Web Dashboard</h3>
+        <p style="font-size:0.85rem; color:var(--text-secondary); line-height:1.7;">Beautifully visualized dosha reports, daily wellness scores, and personalized lifestyle recommendations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 5 — HOW IT WORKS
+════════════════════════════════════════════════════════════ -->
+<section id="how-it-works" aria-labelledby="how-heading">
+  <div class="container">
+    <div style="text-align:center; max-width:600px; margin:0 auto 1rem;">
+      <p class="section-label">How It Works</p>
+      <h2 class="section-title reveal" id="how-heading">
+        Five Steps to<br/><span class="gradient-text">Ayurvedic Clarity</span>
+      </h2>
+    </div>
+
+    <div class="steps-grid">
+      <div class="glass-card step-card reveal">
+        <div class="step-number" aria-hidden="true">1</div>
+        <div class="step-icon" aria-hidden="true">⌚</div>
+        <h3>Wear the Device</h3>
+        <p>Strap on the NADI-VERSE™ wearable — lightweight, comfortable, designed for all-day use.</p>
+      </div>
+      <div class="glass-card step-card reveal reveal-delay-1">
+        <div class="step-number" aria-hidden="true">2</div>
+        <div class="step-icon" aria-hidden="true">📡</div>
+        <h3>Collect Signals</h3>
+        <p>Sensors continuously capture HRV, skin temperature, SpO₂, and galvanic skin response.</p>
+      </div>
+      <div class="glass-card step-card reveal reveal-delay-2">
+        <div class="step-number" aria-hidden="true">3</div>
+        <div class="step-icon" aria-hidden="true">🧠</div>
+        <h3>AI Analyzes</h3>
+        <p>Our ML models detect patterns and classify physiological states against Ayurvedic parameters.</p>
+      </div>
+      <div class="glass-card step-card reveal reveal-delay-3">
+        <div class="step-number" aria-hidden="true">4</div>
+        <div class="step-icon" aria-hidden="true">🌿</div>
+        <h3>Ayurvedic Mapping</h3>
+        <p>Patterns are mapped to Vata, Pitta, and Kapha doshas using a curated Ayurvedic knowledge base.</p>
+      </div>
+      <div class="glass-card step-card reveal reveal-delay-4">
+        <div class="step-number" aria-hidden="true">5</div>
+        <div class="step-icon" aria-hidden="true">📋</div>
+        <h3>Wellness Report</h3>
+        <p>You receive a personalized daily report with diet, lifestyle, and routine recommendations.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top:3rem;">
+      <a href="{% url 'demo:demo' %}" class="btn btn-primary btn-lg" id="btn-try-demo-how">
+        <i class="fa-solid fa-flask" aria-hidden="true"></i>
+        Experience It Now — Try the Demo
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 6 — INTERACTIVE DEMO CTA
+════════════════════════════════════════════════════════════ -->
+<section id="demo-cta" aria-labelledby="demo-cta-heading">
+  <div class="container">
+    <div class="glass-card demo-cta-inner reveal">
+      <p class="section-label" style="justify-content:center;">Interactive Demo</p>
+      <h2 id="demo-cta-heading">
+        Discover Your<br/><span class="gradient-text">Dosha Profile</span>
+      </h2>
+      <p>
+        Enter your name, age, and gender. Our demo AI engine will generate your personalized
+        Ayurvedic dosha analysis and wellness recommendations in seconds.
+      </p>
+      {% include 'partials/_disclaimer.html' %}
+      <a href="{% url 'demo:demo' %}" class="btn btn-primary btn-lg" id="btn-start-demo-cta">
+        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+        Start Free Demo Analysis
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 7 — TECHNOLOGY ARCHITECTURE
+════════════════════════════════════════════════════════════ -->
+<section id="tech-arch" aria-labelledby="tech-heading">
+  <div class="container">
+    <div style="text-align:center; max-width:640px; margin:0 auto 1rem;">
+      <p class="section-label">Technology Stack</p>
+      <h2 class="section-title reveal" id="tech-heading">
+        The Architecture Behind<br/><span class="gradient-text">NADI-VERSE™</span>
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-1" style="margin:0 auto;">
+        A multi-layer intelligent pipeline from raw sensor data to actionable Ayurvedic insights.
+      </p>
+    </div>
+
+    <div class="arch-flow" role="img" aria-label="Technology architecture pipeline">
+      <div class="arch-node">
+        <div class="arch-node-icon" aria-hidden="true">🔬</div>
+        <div class="arch-node-title">Wearable Sensors</div>
+        <div class="arch-node-desc">HRV, SpO₂,<br/>Temp, GSR</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-node-icon" aria-hidden="true">⚙️</div>
+        <div class="arch-node-title">Signal Processing</div>
+        <div class="arch-node-desc">Noise filtering,<br/>feature extraction</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-node-icon" aria-hidden="true">🤖</div>
+        <div class="arch-node-title">AI Engine</div>
+        <div class="arch-node-desc">ML classification<br/>& pattern matching</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-node-icon" aria-hidden="true">📚</div>
+        <div class="arch-node-title">Ayurveda KB</div>
+        <div class="arch-node-desc">Dosha rules,<br/>classical texts</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-node-icon" aria-hidden="true">🔮</div>
+        <div class="arch-node-title">Prediction Model</div>
+        <div class="arch-node-desc">Dosha scoring<br/>& wellness index</div>
+      </div>
+      <div class="arch-node">
+        <div class="arch-node-icon" aria-hidden="true">📱</div>
+        <div class="arch-node-title">App & Dashboard</div>
+        <div class="arch-node-desc">Insights, reports<br/>& recommendations</div>
+      </div>
+    </div>
+
+    <!-- Tech tags -->
+    <div style="display:flex; flex-wrap:wrap; gap:0.75rem; justify-content:center; margin-top:3rem;">
+      {% for tag in tech_tags %}
+      <span style="background:rgba(0,212,255,0.07); border:1px solid rgba(0,212,255,0.2); border-radius:50px; padding:0.4rem 1rem; font-size:0.78rem; font-weight:600; color:var(--cyan);">{{ tag }}</span>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 8 — FUTURE ROADMAP
+════════════════════════════════════════════════════════════ -->
+<section id="roadmap" aria-labelledby="roadmap-heading">
+  <div class="container">
+    <div style="max-width:560px;">
+      <p class="section-label">Roadmap</p>
+      <h2 class="section-title reveal" id="roadmap-heading">
+        From Concept to<br/><span class="gradient-text">Commercial Reality</span>
+      </h2>
+      <p class="section-subtitle reveal reveal-delay-1">
+        Our five-phase journey from an SSIP proof-of-concept to a global AI-Ayurveda platform.
+      </p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; margin-top:3rem;">
+      <div class="roadmap-timeline" role="list">
+        <div class="roadmap-item" role="listitem">
+          <div class="roadmap-dot active" aria-label="Completed"></div>
+          <div class="glass-card roadmap-content">
+            <div class="roadmap-phase">Phase 1 — Now</div>
+            <div class="roadmap-title">Website Proof of Concept</div>
+            <div class="roadmap-desc">Django-powered SSIP demo website with interactive dosha analysis, admin dashboard, and full concept documentation.</div>
+            <span class="roadmap-tag tag-active">✅ Live Now</span>
+          </div>
+        </div>
+
+        <div class="roadmap-item" role="listitem">
+          <div class="roadmap-dot" aria-label="Upcoming"></div>
+          <div class="glass-card roadmap-content">
+            <div class="roadmap-phase">Phase 2 — Q3 2026</div>
+            <div class="roadmap-title">Mobile Application</div>
+            <div class="roadmap-desc">React Native iOS/Android app with live dosha dashboard, wellness tracking, notifications, and Ayurvedic recipe suggestions.</div>
+            <span class="roadmap-tag tag-next">📱 Next Up</span>
+          </div>
+        </div>
+
+        <div class="roadmap-item" role="listitem">
+          <div class="roadmap-dot" aria-label="Future"></div>
+          <div class="glass-card roadmap-content">
+            <div class="roadmap-phase">Phase 3 — Q1 2027</div>
+            <div class="roadmap-title">Wearable Prototype</div>
+            <div class="roadmap-desc">Physical wearable with HRV, temperature, SpO₂ sensors. BLE 5.0 connectivity. 3D-printed enclosure and PCB prototype.</div>
+            <span class="roadmap-tag tag-future">🔧 In Design</span>
+          </div>
+        </div>
+
+        <div class="roadmap-item" role="listitem">
+          <div class="roadmap-dot" aria-label="Future"></div>
+          <div class="glass-card roadmap-content">
+            <div class="roadmap-phase">Phase 4 — 2027</div>
+            <div class="roadmap-title">Research & Clinical Validation</div>
+            <div class="roadmap-desc">Collaboration with Ayurvedic colleges and hospitals for clinical trials. Peer-reviewed research publication. AYUSH certification pathway.</div>
+            <span class="roadmap-tag tag-future">🔬 Planned</span>
+          </div>
+        </div>
+
+        <div class="roadmap-item" role="listitem">
+          <div class="roadmap-dot" aria-label="Future"></div>
+          <div class="glass-card roadmap-content">
+            <div class="roadmap-phase">Phase 5 — 2028</div>
+            <div class="roadmap-title">Commercial Launch</div>
+            <div class="roadmap-desc">Global product launch. Subscription wellness platform. B2B partnerships with Ayurvedic clinics. International markets including USA, EU, and Southeast Asia.</div>
+            <span class="roadmap-tag tag-future">🚀 Vision</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vision card -->
+      <div>
+        <div class="glass-card reveal" style="padding:2.5rem; position:sticky; top:120px;">
+          <p class="section-label">Our Vision</p>
+          <h3 style="font-size:1.5rem; font-weight:800; margin-bottom:1rem; line-height:1.3;">
+            Global Leader in<br/><span class="gradient-text">AI-Driven Ayurvedic Innovation</span>
+          </h3>
+          <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.8; margin-bottom:1.5rem;">
+            We envision a world where every individual understands their unique Ayurvedic constitution
+            and receives personalized guidance to live in harmony with their nature — powered by AI
+            and grounded in 5,000 years of Ayurvedic knowledge.
+          </p>
+
+          <div style="display:flex; flex-direction:column; gap:0.75rem; margin-bottom:2rem;">
+            {% for item in vision_items %}
+            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.85rem; color:var(--text-secondary);">
+              <i class="fa-solid fa-check-circle" style="color:var(--emerald);" aria-hidden="true"></i>
+              {{ item }}
+            </div>
+            {% endfor %}
+          </div>
+
+          <a href="{% url 'demo:demo' %}" class="btn btn-outline" style="width:100%; justify-content:center;" id="btn-demo-roadmap">
+            <i class="fa-solid fa-play" aria-hidden="true"></i>
+            Try the Demo Today
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 9 — FOUNDER
+════════════════════════════════════════════════════════════ -->
+<section id="founder" aria-labelledby="founder-heading">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:0;">
+      <p class="section-label">The Visionary</p>
+      <h2 class="section-title reveal" id="founder-heading">
+        Meet the <span class="gradient-text">Founder</span>
+      </h2>
+    </div>
+
+    <div class="glass-card founder-card reveal reveal-delay-1">
+      {% if founder and founder.photo %}
+        <img src="{{ founder.photo.url }}" alt="Photo of {{ founder.name }}" class="founder-avatar" />
+      {% else %}
+        <div class="founder-avatar-placeholder" aria-hidden="true">👨‍⚕️</div>
+      {% endif %}
+
+      <div>
+        <h3 class="founder-name">
+          {% if founder %}{{ founder.name }}{% else %}Mitanshu M. Upadhyay{% endif %}
+        </h3>
+        <p class="founder-title">
+          {% if founder %}{{ founder.title }}{% else %}BAMS Student &amp; Founder, Sattvica Ayurved{% endif %}
+        </p>
+        <p class="founder-bio">
+          {% if founder %}{{ founder.bio }}{% else %}
+          Mitanshu M. Upadhyay is a BAMS student and innovation enthusiast at the intersection
+          of Artificial Intelligence, Ayurveda, and Wearable Technology. As the founder of
+          Sattvica Ayurved, he is pioneering the fusion of ancient healing wisdom with cutting-edge
+          technology to make personalized Ayurvedic wellness accessible to everyone.
+          As the visionary behind NADI-VERSE™, he believes that the future of healthcare lies
+          in the confluence of ancient wisdom and modern AI — and is working to make that future a reality.
+          {% endif %}
+        </p>
+
+        <div class="founder-socials">
+          <a href="{% if founder %}{{ founder.instagram_url }}{% else %}https://instagram.com/{% endif %}"
+             target="_blank" rel="noopener noreferrer" class="social-link" id="link-founder-instagram"
+             aria-label="Mitanshu on Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i> Instagram
+          </a>
+          <a href="{% if founder %}{{ founder.linkedin_url }}{% else %}https://linkedin.com/in/{% endif %}"
+             target="_blank" rel="noopener noreferrer" class="social-link" id="link-founder-linkedin"
+             aria-label="Mitanshu on LinkedIn">
+            <i class="fa-brands fa-linkedin" aria-hidden="true"></i> LinkedIn
+          </a>
+          <a href="mailto:{% if founder %}{{ founder.email }}{% else %}mitanshu@sattvicaayurved.com{% endif %}"
+             class="social-link" id="link-founder-email"
+             aria-label="Email Mitanshu">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i> Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════════════
+     SECTION 10 — SSIP STATEMENT
+════════════════════════════════════════════════════════════ -->
+<section id="ssip" aria-labelledby="ssip-heading" style="background: rgba(5,12,22,0.8);">
+  <div class="container">
+    <div class="ssip-statement-card reveal">
+
+      <!-- Top badge -->
+      <div class="ssip-trophy-row" aria-hidden="true">
+        <div class="ssip-trophy-icon">🏆</div>
+        <div class="ssip-divider"></div>
+      </div>
+
+      <div class="ssip-inner">
+        <!-- Left: Competition info -->
+        <div class="ssip-meta">
+          <p class="section-label">SSIP 2026</p>
+          <h2 class="ssip-title" id="ssip-heading">
+            Student Startup &amp; Innovation<br/>
+            <span class="gradient-text">Policy — Proof of Concept</span>
+          </h2>
+
+          <div class="ssip-detail-grid">
+            <div class="ssip-detail">
+              <span class="ssip-detail-label"><i class="fa-solid fa-school" aria-hidden="true"></i> Institution</span>
+              <span class="ssip-detail-value">Presented for SSIP 2026 Evaluation</span>
+            </div>
+            <div class="ssip-detail">
+              <span class="ssip-detail-label"><i class="fa-solid fa-user-graduate" aria-hidden="true"></i> Innovator</span>
+              <span class="ssip-detail-value">Mitanshu M. Upadhyay</span>
+            </div>
+            <div class="ssip-detail">
+              <span class="ssip-detail-label"><i class="fa-solid fa-flask" aria-hidden="true"></i> Stage</span>
+              <span class="ssip-detail-value">Proof of Concept</span>
+            </div>
+            <div class="ssip-detail">
+              <span class="ssip-detail-label"><i class="fa-solid fa-tag" aria-hidden="true"></i> Category</span>
+              <span class="ssip-detail-value">HealthTech / AI / Ayurveda</span>
+            </div>
+            <div class="ssip-detail">
+              <span class="ssip-detail-label"><i class="fa-solid fa-calendar" aria-hidden="true"></i> Year</span>
+              <span class="ssip-detail-value">2026</span>
+            </div>
+            <div class="ssip-detail">
+              <span class="ssip-detail-label"><i class="fa-solid fa-code" aria-hidden="true"></i> Stack</span>
+              <span class="ssip-detail-value">Django · SQLite · AI · HTML/CSS/JS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Disclaimer & CTA -->
+        <div class="ssip-right">
+          <div class="ssip-disclaimer-box">
+            <div class="ssip-disclaimer-icon" aria-hidden="true">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3>Official Disclaimer</h3>
+            <p>
+              <strong>NADI-VERSE™</strong> is a <strong>conceptual proof-of-concept prototype</strong>
+              developed exclusively for the <strong>SSIP 2026</strong> student innovation evaluation.
+            </p>
+            <p style="margin-top:0.75rem;">
+              All AI-generated dosha analysis and wellness results shown on this website are
+              <strong>simulated dummy values</strong> created for demonstration purposes only.
+              They do <strong>not</strong> constitute medical advice, clinical diagnosis, or treatment
+              recommendations.
+            </p>
+            <p style="margin-top:0.75rem;">
+              NADI-VERSE™ is <strong>not a commercially available product</strong> and has not undergone
+              clinical validation. Always consult a qualified Ayurvedic practitioner or licensed
+              healthcare professional for medical guidance.
+            </p>
+          </div>
+
+          <div class="ssip-cta-row">
+            <a href="{% url 'demo:demo' %}" class="btn btn-primary" id="btn-ssip-demo">
+              <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+              Try the Live Demo
+            </a>
+            <a href="#innovation" class="btn btn-outline" id="btn-ssip-innovation">
+              <i class="fa-solid fa-microchip" aria-hidden="true"></i>
+              View Innovation
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom strip -->
+      <div class="ssip-footer-strip">
+        <span>© 2026 Sattvica Ayurved &nbsp;·&nbsp; NADI-VERSE™ &nbsp;·&nbsp; SSIP Proof-of-Concept</span>
+        <span style="color:var(--cyan);">Ancient Wisdom. Future Technology.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+

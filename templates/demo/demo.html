@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Loading Overlay -->
+<div id="loading-overlay" role="dialog" aria-modal="true" aria-label="Analyzing your data">
+  <div style="position:relative; display:flex; align-items:center; justify-content:center;">
+    <div class="loading-ring"></div>
+    <div class="loading-ring-2"></div>
+  </div>
+  <div class="loading-text">
+    <h3>Analyzing Physiological Patterns…</h3>
+    <p>NADI-VERSE™ AI is processing your data</p>
+    <div class="loading-steps">
+      <div class="loading-step" id="ls-1">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> Reading biometric profile…
+      </div>
+      <div class="loading-step" id="ls-2">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> Mapping to dosha parameters…
+      </div>
+      <div class="loading-step" id="ls-3">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> Consulting Ayurvedic knowledge base…
+      </div>
+      <div class="loading-step" id="ls-4">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> Generating wellness recommendations…
+      </div>
+      <div class="loading-step" id="ls-5">
+        <i class="fa-solid fa-check" aria-hidden="true"></i> Preparing your personalized report…
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Demo Page -->
+<div class="demo-page">
+  <div class="demo-container">
+    <div class="demo-header">
+      <div class="hero-badge" style="justify-content:center; margin-bottom:1.5rem;">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        AI-Powered Dosha Analysis
+      </div>
+      <h1 class="gradient-text">Discover Your<br/>Ayurvedic Profile</h1>
+      <p>Enter your details below. Our NADI-VERSE™ AI engine will generate your personalized dosha constitution and wellness recommendations.</p>
+    </div>
+
+    {% include 'partials/_disclaimer.html' %}
+
+    <div class="glass-card demo-form-card">
+      <form id="demo-form" method="post" action="{% url 'demo:demo' %}" novalidate>
+        {% csrf_token %}
+
+        <!-- Name -->
+        <div class="form-group">
+          <label class="form-label" for="id_name">
+            <i class="fa-solid fa-user" aria-hidden="true"></i> &nbsp;Full Name
+          </label>
+          {{ form.name }}
+          {% if form.name.errors %}
+            {% for error in form.name.errors %}
+              <div class="form-error">
+                <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> {{ error }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+          <label class="form-label" for="id_age">
+            <i class="fa-solid fa-cake-candles" aria-hidden="true"></i> &nbsp;Age
+          </label>
+          {{ form.age }}
+          {% if form.age.errors %}
+            {% for error in form.age.errors %}
+              <div class="form-error">
+                <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> {{ error }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+          <label class="form-label" for="id_gender">
+            <i class="fa-solid fa-person" aria-hidden="true"></i> &nbsp;Biological Gender
+          </label>
+          {{ form.gender }}
+          {% if form.gender.errors %}
+            {% for error in form.gender.errors %}
+              <div class="form-error">
+                <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i> {{ error }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          <p style="font-size:0.75rem; color:var(--text-muted); margin-top:0.4rem;">
+            Gender influences Ayurvedic dosha calculations in traditional texts.
+          </p>
+        </div>
+
+        <!-- Non-field errors -->
+        {% if form.non_field_errors %}
+          <div class="form-error" style="margin-bottom:1rem;">
+            {% for error in form.non_field_errors %}{{ error }}{% endfor %}
+          </div>
+        {% endif %}
+
+        <button type="submit" class="btn btn-primary btn-lg demo-submit-btn" id="btn-submit-demo">
+          <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+          Analyze My Dosha Profile
+        </button>
+      </form>
+    </div>
+
+    <!-- How it works mini -->
+    <div class="glass-card reveal" style="padding:1.75rem; margin-top:1.5rem;">
+      <p style="font-size:0.75rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-bottom:1rem;">What happens next?</p>
+      <div style="display:flex; flex-direction:column; gap:0.6rem;">
+        {% for step in demo_next_steps %}
+        <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.825rem; color:var(--text-secondary);">
+          <i class="fa-solid fa-circle-check" style="color:var(--cyan);" aria-hidden="true"></i>
+          {{ step }}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{% static 'js/demo.js' %}"></script>
+{% endblock %}

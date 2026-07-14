@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="results-page">
+  <div class="results-container">
+
+    <!-- Header -->
+    <div class="results-header reveal">
+      <div class="hero-badge" style="justify-content:center; margin-bottom:1rem;">
+        <span class="hero-badge-dot" aria-hidden="true"></span>
+        NADI-VERSE™ AI Report
+      </div>
+      <h1>
+        {{ submission.name }}'s<br/>
+        <span class="gradient-text">Ayurvedic Profile</span>
+      </h1>
+      <p class="results-meta">
+        {{ submission.gender }} &bull; Age {{ submission.age }} &bull;
+        Report generated {{ submission.created_at|date:"d M Y, H:i" }}
+      </p>
+      <div class="dominant-dosha-badge" aria-live="polite">
+        <i class="fa-solid fa-star" aria-hidden="true"></i>
+        Dominant Dosha: <strong>{{ dominant_dosha }}</strong>
+        &nbsp;—&nbsp;
+        {% if dominant_dosha == "Vata" %}Air &amp; Space Energy
+        {% elif dominant_dosha == "Pitta" %}Fire &amp; Water Energy
+        {% else %}Earth &amp; Water Energy{% endif %}
+      </div>
+    </div>
+
+    {% include 'partials/_disclaimer.html' %}
+
+    <!-- ── Dosha Breakdown ── -->
+    <div class="glass-card dosha-section reveal" style="padding:2.5rem; margin-bottom:1.5rem;">
+      <h2>
+        <i class="fa-solid fa-chart-pie" style="color:var(--cyan);" aria-hidden="true"></i>
+        Dosha Constitution
+      </h2>
+
+      <div class="dosha-bar-group" role="group" aria-label="Dosha percentage breakdown">
+        <div class="dosha-bar-item">
+          <span class="dosha-name">🌬️ Vata</span>
+          <div class="dosha-track" role="progressbar" aria-valuenow="{{ submission.vata_score }}" aria-valuemin="0" aria-valuemax="100" aria-label="Vata: {{ submission.vata_score }}%">
+            <div class="dosha-fill fill-vata" data-target="{{ submission.vata_score }}" style="width:0%"></div>
+          </div>
+          <span class="dosha-pct">{{ submission.vata_score }}%</span>
+        </div>
+        <div class="dosha-bar-item">
+          <span class="dosha-name">🔥 Pitta</span>
+          <div class="dosha-track" role="progressbar" aria-valuenow="{{ submission.pitta_score }}" aria-valuemin="0" aria-valuemax="100" aria-label="Pitta: {{ submission.pitta_score }}%">
+            <div class="dosha-fill fill-pitta" data-target="{{ submission.pitta_score }}" style="width:0%"></div>
+          </div>
+          <span class="dosha-pct">{{ submission.pitta_score }}%</span>
+        </div>
+        <div class="dosha-bar-item">
+          <span class="dosha-name">🌊 Kapha</span>
+          <div class="dosha-track" role="progressbar" aria-valuenow="{{ submission.kapha_score }}" aria-valuemin="0" aria-valuemax="100" aria-label="Kapha: {{ submission.kapha_score }}%">
+            <div class="dosha-fill fill-kapha" data-target="{{ submission.kapha_score }}" style="width:0%"></div>
+          </div>
+          <span class="dosha-pct">{{ submission.kapha_score }}%</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Wellness Metrics ── -->
+    <h2 style="font-size:1.25rem; font-weight:700; margin-bottom:1.25rem; display:flex; align-items:center; gap:0.5rem;" class="reveal">
+      <i class="fa-solid fa-heart-pulse" style="color:var(--cyan);" aria-hidden="true"></i>
+      Wellness Metrics
+    </h2>
+
+    <div class="metrics-grid">
+      <div class="glass-card metric-card metric-stress reveal">
+        <div class="metric-icon" aria-hidden="true">😤</div>
+        <div class="metric-label">Stress Level</div>
+        <div class="metric-value" aria-label="Stress score: {{ submission.stress_score }} out of 100">{{ submission.stress_score }}</div>
+        <div class="metric-desc">
+          /100 &nbsp;—&nbsp;
+          {% if submission.stress_score < 40 %}Low stress, excellent balance
+          {% elif submission.stress_score < 65 %}Moderate — manageable
+          {% else %}Elevated — attention needed{% endif %}
+        </div>
+      </div>
+
+      <div class="glass-card metric-card metric-sleep reveal reveal-delay-1">
+        <div class="metric-icon" aria-hidden="true">😴</div>
+        <div class="metric-label">Sleep Quality</div>
+        <div class="metric-value" aria-label="Sleep score: {{ submission.sleep_score }} out of 100">{{ submission.sleep_score }}</div>
+        <div class="metric-desc">
+          /100 &nbsp;—&nbsp;
+          {% if submission.sleep_score >= 75 %}Excellent restorative sleep
+          {% elif submission.sleep_score >= 55 %}Good — minor improvements advised
+          {% else %}Disrupted — Vata imbalance likely{% endif %}
+        </div>
+      </div>
+
+      <div class="glass-card metric-card metric-energy reveal reveal-delay-2">
+        <div class="metric-icon" aria-hidden="true">⚡</div>
+        <div class="metric-label">Energy Level</div>
+        <div class="metric-value" aria-label="Energy score: {{ submission.energy_score }} out of 100">{{ submission.energy_score }}</div>
+        <div class="metric-desc">
+          /100 &nbsp;—&nbsp;
+          {% if submission.energy_score >= 75 %}High vitality — Ojas strong
+          {% elif submission.energy_score >= 55 %}Moderate — Rasayana herbs advised
+          {% else %}Low — rest and nourishment needed{% endif %}
+        </div>
+      </div>
+
+      <div class="glass-card metric-card metric-wellness reveal reveal-delay-3">
+        <div class="metric-icon" aria-hidden="true">🌟</div>
+        <div class="metric-label">Daily Wellness Score</div>
+        <div class="metric-value" aria-label="Overall wellness score: {{ submission.wellness_score }} out of 100">{{ submission.wellness_score }}</div>
+        <div class="metric-desc">
+          /100 &nbsp;—&nbsp;
+          {% if submission.wellness_score >= 75 %}Thriving — keep it up!
+          {% elif submission.wellness_score >= 55 %}Stable — room to grow
+          {% else %}Needs attention — consult a practitioner{% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Personalized Suggestions ── -->
+    <div class="suggestions-section">
+      <h2 class="reveal">
+        <i class="fa-solid fa-leaf" style="color:var(--cyan);" aria-hidden="true"></i>
+        Personalized Recommendations for <span class="gradient-text">{{ dominant_dosha }} Constitution</span>
+      </h2>
+
+      <div class="suggestions-grid">
+        <div class="glass-card suggestion-card reveal">
+          <h3><i class="fa-solid fa-person-walking" aria-hidden="true"></i> Lifestyle</h3>
+          <ul>
+            {% for tip in suggestions.lifestyle %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="glass-card suggestion-card reveal reveal-delay-1">
+          <h3><i class="fa-solid fa-utensils" aria-hidden="true"></i> Diet</h3>
+          <ul>
+            {% for tip in suggestions.diet %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div class="glass-card suggestion-card reveal reveal-delay-2">
+          <h3><i class="fa-solid fa-sun" aria-hidden="true"></i> Daily Routine</h3>
+          <ul>
+            {% for tip in suggestions.routine %}
+            <li>{{ tip }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dosha info card -->
+    <div class="glass-card reveal" style="padding:2rem; margin-bottom:2rem; background:rgba(0,212,255,0.04); border-color:rgba(0,212,255,0.2);">
+      <p class="section-label">About Your Dominant Dosha</p>
+      {% if dominant_dosha == "Vata" %}
+      <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.75rem;">🌬️ Vata — The Energy of Movement</h3>
+      <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.8;">
+        Vata dosha governs movement, creativity, and flexibility. Made of Air and Space, Vata types are naturally quick-thinking,
+        enthusiastic, and adaptable. When balanced, Vata brings vitality and joy. When imbalanced, it can cause anxiety,
+        dryness, irregular digestion, and sleep disturbances. Grounding, warmth, and routine are your best friends.
+      </p>
+      {% elif dominant_dosha == "Pitta" %}
+      <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.75rem;">🔥 Pitta — The Energy of Transformation</h3>
+      <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.8;">
+        Pitta dosha governs metabolism, transformation, and intelligence. Made of Fire and Water, Pitta types are natural leaders —
+        driven, focused, and ambitious. When balanced, Pitta brings sharp intellect and strong digestion. When imbalanced,
+        it can manifest as inflammation, irritability, and burnout. Cooling, moderation, and surrender are your medicine.
+      </p>
+      {% else %}
+      <h3 style="font-size:1.15rem; font-weight:700; margin-bottom:0.75rem;">🌊 Kapha — The Energy of Stability</h3>
+      <p style="font-size:0.875rem; color:var(--text-secondary); line-height:1.8;">
+        Kapha dosha governs structure, stability, and lubrication. Made of Earth and Water, Kapha types are naturally calm,
+        compassionate, and grounded. When balanced, Kapha brings strength, endurance, and unwavering loyalty. When imbalanced,
+        it can cause lethargy, weight gain, and attachment. Movement, stimulation, and lightness are your allies.
+      </p>
+      {% endif %}
+    </div>
+
+    {% include 'partials/_disclaimer.html' %}
+
+    <!-- Actions -->
+    <div class="results-actions reveal">
+      <a href="{% url 'demo:demo' %}" class="btn btn-outline" id="btn-retake-demo">
+        <i class="fa-solid fa-rotate-right" aria-hidden="true"></i>
+        Try Again
+      </a>
+      <a href="{% url 'core:landing' %}" class="btn btn-outline" id="btn-back-home">
+        <i class="fa-solid fa-house" aria-hidden="true"></i>
+        Back to Home
+      </a>
+      <a href="{% url 'core:landing' %}#roadmap" class="btn btn-primary" id="btn-see-roadmap">
+        <i class="fa-solid fa-road" aria-hidden="true"></i>
+        See Our Roadmap
+      </a>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  // Trigger dosha bar animation on load
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelectorAll('.dosha-fill').forEach(fill => {
+        fill.style.width = fill.dataset.target + '%';
+      });
+    }, 500);
+  });
+</script>
+{% endblock %}
